@@ -1,0 +1,33 @@
+.header-main {
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  justify-content: flex-end;
+  color: white;
+  font-weight: 500;
+  background: #57d2a8;
+  .user {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-right: -20px;
+    .name {
+      font-size: 15px;
+    }
+    .img-user {      
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 30px;
+      clip-path: circle(50% at 50% 50%);
+      width: 30px;
+      height: 30px;
+      margin: 0 5px 0 10px;
+    }
+    &:hover {
+      user-select: none;
+      cursor: pointer;
+    }
+  }
+}
