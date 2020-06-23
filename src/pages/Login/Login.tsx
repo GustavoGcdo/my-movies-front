@@ -35,8 +35,6 @@ const Login: FunctionComponent<RouteComponentProps> = ({ history }) => {
       const fieldErrors = ErrorHandler.getFieldErrors(errors);
       formRef.current?.setErrors(fieldErrors);
     } else {
-      console.log(resultError);
-
       setErrorMessages(['Falha no servidor']);
     }
   };

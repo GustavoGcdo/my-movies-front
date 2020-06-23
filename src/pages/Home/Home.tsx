@@ -26,7 +26,6 @@ const Home: FunctionComponent = () => {
     const searchTerm: string = event.target.value;
 
     if (searchTerm && searchTerm.trim().length > 0) {
-      console.log(searchTerm);
       setSearchTerm(searchTerm);
 
       MovieService.searchMovies(searchTerm)

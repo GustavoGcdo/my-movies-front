@@ -37,12 +37,9 @@ const DialogAddProfile: FunctionComponent<DialogProps> = ({ open, onClose }) => 
     if (newProfile && idUser) {
       UserService.addProfile(idUser, newProfile)
         .then((result) => {
-          console.log(result);
           onClose(true);
         })
         .catch((resultError) => {
-          console.log(resultError);
-
           handleErrors(resultError);
         });
     }
@@ -57,8 +54,6 @@ const DialogAddProfile: FunctionComponent<DialogProps> = ({ open, onClose }) => 
       const fieldErrors = ErrorHandler.getFieldErrors(errors);
       formRef.current?.setErrors(fieldErrors);
     } else {
-      console.log(resultError);
-
       setErrorMessages(['Falha no servidor']);
     }
   };

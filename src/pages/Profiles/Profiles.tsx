@@ -39,7 +39,6 @@ const Profiles: FunctionComponent = () => {
   };
 
   const handleOnCloseDialog = (confirm: Boolean) => {
-    console.log(confirm);
     setOpenDialog(false);
     if (confirm) {
       getProfiles();
