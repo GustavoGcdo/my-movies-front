@@ -26,9 +26,9 @@ const Watchlist: FunctionComponent = () => {
         <span className='title'>Meus filmes</span>
 
         <div className='movies'>
-          {movieList.map((movie: MyMovie) => (
+          {movieList.length > 0 ? movieList.map((movie: MyMovie) => (
             <MovieItem key={movie._id} movie={movie.info} />
-          ))}
+          )): <span>Nenhum filme adicionado a lista</span>}
         </div>
       </section>
     </div>
