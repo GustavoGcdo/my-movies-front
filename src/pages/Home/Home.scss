@@ -1,0 +1,26 @@
+.input-search-movie {
+  width: 40%;
+  padding: 10px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.section {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    display: block;
+    margin-bottom: 25px;
+    font-weight: 500;
+    font-size: 1em;
+  }
+}
+
+.movies {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}

@@ -1,0 +1,20 @@
+.movie {
+  max-width: 300px;
+  background: white;
+  border-radius: 4px;
+  img {
+    width: 100%;
+  }
+  .info {
+    padding: 20px 10px;
+  }
+
+  .label,
+  .value {
+    font-size: 0.8em;
+  }
+
+  .label {
+    font-weight: bold;
+  }
+}
