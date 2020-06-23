@@ -24,16 +24,16 @@ const SideBar: FunctionComponent<RouteComponentProps> = (props) => {
         <div className='logo'></div>
       </div>
       <div className='menu'>
+        <Link className={getClassMenuItem(profilesRoute)} to={profilesRoute}>
+          <Icon>group</Icon>
+          <span className='name-title'>Perfis</span>
+        </Link>
         <div className='title-separator'>
           <span>Menu</span>
         </div>
         <Link className={getClassMenuItem(homeRoute)} to={homeRoute}>
           <Icon>home</Icon>
           <span className='name-title'>Home</span>
-        </Link>
-        <Link className={getClassMenuItem(profilesRoute)} to={profilesRoute}>
-          <Icon>group</Icon>
-          <span className='name-title'>Perfis</span>
         </Link>
         <Link className={getClassMenuItem(watchlistRoute)} to={watchlistRoute}>
           <Icon>live_tv</Icon>
