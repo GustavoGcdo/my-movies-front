@@ -5,15 +5,16 @@ import { homeRoute, loginRoute, mainRoute, signupRoute } from './constants/route
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 
 const Routes: FunctionComponent = () => {
   return (
     <BrowserRouter>
       <Switch>
         <Redirect from={mainRoute} exact to={loginRoute} />
-        <Route path={homeRoute} exact component={Home} />
         <Route path={loginRoute} exact component={Login} />
         <Route path={signupRoute} exact component={Signup} />
+        <ProtectedRoute path={homeRoute} exact component={Home} />        
         <Route path='*' component={NotFound} />
       </Switch>
     </BrowserRouter>

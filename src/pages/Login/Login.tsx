@@ -3,24 +3,21 @@ import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import React, { FunctionComponent, useRef, useState } from 'react';
 import { RouteComponentProps, Link } from 'react-router-dom';
-import ErrorMessage from '../../components/errorMessage/ErrorMessage';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import InputForm from '../../components/formComponents/InputForm';
 import { homeRoute, signupRoute } from '../../constants/routes.constants';
 import { ErrorHandler } from '../../infra/errorHandler';
 import { Result } from '../../infra/result';
 import { LoginDto } from '../../models/auth/login.dto';
-import './Login.scss';
-import { Auth } from '../../infra/auth/Auth';
+import Auth from '../../infra/auth/Auth';
 
-const auth = new Auth();
 const Login: FunctionComponent<RouteComponentProps> = ({ history }) => {
   const formRef = useRef<FormHandles>(null);
   const [errorMessages, setErrorMessages] = useState<string[]>([]);
 
   const handleSubmit = (data: LoginDto) => {
     setErrorMessages([]);
-    auth
-      .login(data)
+    Auth.login(data)
       .then((result) => {
         history.push(homeRoute);
       })
@@ -39,7 +36,7 @@ const Login: FunctionComponent<RouteComponentProps> = ({ history }) => {
       formRef.current?.setErrors(fieldErrors);
     } else {
       console.log(resultError);
-      
+
       setErrorMessages(['Falha no servidor']);
     }
   };
@@ -48,7 +45,9 @@ const Login: FunctionComponent<RouteComponentProps> = ({ history }) => {
     <div className='login-container'>
       <Form ref={formRef} onSubmit={handleSubmit}>
         <div className='login-card'>
-          <span className='title'>Login</span>
+          <div className='header'>
+            <span className='title'>Login</span>
+          </div>
           <InputForm name='email' label='Email' variant='outlined' />
           <InputForm name='password' label='Password' type='password' variant='outlined' />
 

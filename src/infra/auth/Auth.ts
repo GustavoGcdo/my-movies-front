@@ -1,6 +1,7 @@
 import { AuthService } from '../../services/auth.service';
 import { LoginDto } from '../../models/auth/login.dto';
-export class Auth {
+
+class Auth {
   private _authenticated: boolean;
 
   constructor() {
@@ -29,3 +30,5 @@ export class Auth {
     this._authenticated = false;
   }
 }
+
+export default new Auth();
