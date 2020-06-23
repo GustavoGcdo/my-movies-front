@@ -14,4 +14,18 @@ export class MovieService {
       });
     return response;
   }
+
+
+  static async searchMovies(search: string) {
+    const response = await HttpService.get(`/movies?search=${search}`, {
+      headers: {
+        Authorization: 'Bearer ' + Auth.getToken(),
+      },
+    })
+      .then((response) => response.data)
+      .catch((err) => {
+        throw err.response.data;
+      });
+    return response;
+  }
 }
