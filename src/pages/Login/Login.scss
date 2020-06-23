@@ -1,0 +1,47 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background: #201e29;
+  font-family: 'Montserrat', sans-serif;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  padding: 30px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+
+  .title {
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+
+  .input-form {
+    margin-bottom: 20px;
+  }
+
+  .divider {
+    width: 100%;
+    margin: 15px 0 20px;
+    background: #e6e6e6;
+    height: 1px;
+    border: none;
+  }
+
+  .btn-registrar {
+    font-size: 0.8em;    
+    cursor: pointer;
+  }
+
+  .errors {
+    margin-top: 10px;
+  }
+}
