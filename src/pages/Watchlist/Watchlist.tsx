@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { FunctionComponent } from 'react';
-import { Movie } from '../../models/movie/movie';
+import React, { FunctionComponent, useEffect, useState } from 'react';
 import MovieItem from '../../components/Movie/MovieItem';
 import Auth from '../../infra/auth/Auth';
-import { MovieService } from '../../services/movie.service';
-import { ProfileService } from '../../services/profile.service';
 import { MyMovie } from '../../models/movie/myMovie';
+import { ProfileService } from '../../services/profile.service';
 
 const Watchlist: FunctionComponent = () => {
   const [movieList, setMovieList] = useState([]);
