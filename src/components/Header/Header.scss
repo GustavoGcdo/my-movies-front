@@ -5,9 +5,11 @@
   align-items: center;
   padding: 0 20px;
   justify-content: flex-end;
-  color: white;
+  color: #201e29;
   font-weight: 500;
-  background: #57d2a8;
+  background: #ffffff;
+  box-shadow: 1px -6px 13px 0px;
+
   .user {
     display: flex;
     align-items: center;
@@ -16,7 +18,7 @@
     .name {
       font-size: 15px;
     }
-    .img-user {      
+    .img-user {
       background-repeat: no-repeat;
       background-position: center;
       background-size: 30px;
