@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from 'react';
 import Button from '@material-ui/core/Button';
 
-type Props = { idMovie: number; onAddToWatchlist: (idMovie: number) => void };
+type Props = { value: any; textAction?: string; onClickAction: (value: any) => void };
 
-const AddToWatchlist: FunctionComponent<Props> = ({ children, onAddToWatchlist, idMovie }) => {
+const MovieContainer: FunctionComponent<Props> = ({ children, onClickAction, value, textAction = 'action' }) => {
   const handleOnClick = () => {
-    onAddToWatchlist(idMovie);
+    onClickAction(value);
   };
 
   return (
@@ -13,11 +13,11 @@ const AddToWatchlist: FunctionComponent<Props> = ({ children, onAddToWatchlist, 
       {children}
       <div className='actions'>
         <Button onClick={handleOnClick} className='btn-action'>
-          Adicionar a minha lista
+          {textAction}
         </Button>
       </div>
     </div>
   );
 };
 
-export default AddToWatchlist;
+export default MovieContainer;

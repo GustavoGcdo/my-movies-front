@@ -1,6 +1,6 @@
 import Snackbar from '@material-ui/core/Snackbar';
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import AddToWatchlist from '../../components/AddToWatchlist/AddToWatchlist';
+import MovieContainer from '../../components/MovieContainer/MovieContainer';
 import MovieItem from '../../components/Movie/MovieItem';
 import Auth from '../../infra/auth/Auth';
 import { Result } from '../../infra/result';
@@ -94,13 +94,14 @@ const Home: FunctionComponent = () => {
         </span>
         <div className='movies'>
           {movieList.map((movie: Movie) => (
-            <AddToWatchlist
+            <MovieContainer
               key={movie.id}
-              idMovie={movie.id}
-              onAddToWatchlist={handleToAddToWatchlist}
+              value={movie.id}
+              onClickAction={handleToAddToWatchlist}
+              textAction={'Adicionar a lista'}
             >
               <MovieItem movie={movie} />
-            </AddToWatchlist>
+            </MovieContainer>
           ))}
         </div>
       </section>

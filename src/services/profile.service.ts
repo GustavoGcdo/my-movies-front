@@ -28,4 +28,21 @@ export class ProfileService {
       });
     return response;
   }
+
+  static async markAsWatched(profileId: string, movieId: string) {
+    const response = await HttpService.post(
+      `/profiles/${profileId}/watchlist/${movieId}/watched`,
+      null,
+      {
+        headers: {
+          Authorization: 'Bearer ' + Auth.getToken(),
+        },
+      },
+    )
+      .then((response) => response.data)
+      .catch((err) => {
+        throw err.response.data;
+      });
+    return response;
+  }
 }
