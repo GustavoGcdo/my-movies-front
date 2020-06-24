@@ -1,6 +1,6 @@
-import React, { FunctionComponent, useState, useEffect } from 'react';
-import './ErrorMessage.scss';
 import Icon from '@material-ui/core/Icon';
+import React, { FunctionComponent, useEffect, useState } from 'react';
+import './ErrorMessage.scss';
 
 type Props = {
   show?: boolean;
