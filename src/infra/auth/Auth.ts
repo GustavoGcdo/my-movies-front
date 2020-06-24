@@ -1,8 +1,9 @@
-import { AuthService } from '../../services/auth.service';
-import { LoginDto } from '../../models/auth/login.dto';
 import jwt from 'jsonwebtoken';
+import { LoginDto } from '../../models/auth/login.dto';
 import { Payload } from '../../models/auth/payload';
+import { SocialLoginDto } from '../../models/auth/socialLogin.dto';
 import { Profile } from '../../models/profile/profile';
+import { AuthService } from '../../services/auth.service';
 
 class Auth {
   private _authenticated: boolean;
@@ -16,6 +17,19 @@ class Auth {
       this._authenticated = true;
       const { token } = result.data;
       localStorage.setItem('token', token);
+      this.setMainProfile();
+      return result.data;
+    });
+
+    return response;
+  }
+
+  async loginWithFacebook(socialLoginDto: SocialLoginDto) {
+    const response: any = await AuthService.loginWithFacebook(socialLoginDto).then((result) => {
+      this._authenticated = true;
+      const { token } = result.data;
+      localStorage.setItem('token', token);
+      localStorage.setItem('social', 'true');
       this.setMainProfile();
       return result.data;
     });
