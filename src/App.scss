@@ -60,3 +60,32 @@
     }
   }
   
+
+  .container-movie {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;  
+    justify-content: space-between;
+    max-width: 300px;
+    transition: .3s;
+  
+    &:hover{
+        transition: .3s;
+        transform: translatey(-4px);
+      box-shadow: 0px 4px 5px 1px #0000003d;
+    }
+  }
+  
+  .actions {
+    width: 100%;
+    display: flex;    
+    background: #57d2a8;  
+    padding: 10px;
+    
+    .btn-action {
+        width: 100%;
+        color : #ffffff;
+    }
+  }
+  
+  

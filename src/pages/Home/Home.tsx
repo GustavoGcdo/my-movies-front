@@ -1,13 +1,20 @@
+import Snackbar from '@material-ui/core/Snackbar';
 import React, { FunctionComponent, useEffect, useState } from 'react';
+import AddToWatchlist from '../../components/AddToWatchlist/AddToWatchlist';
 import MovieItem from '../../components/Movie/MovieItem';
-import './Home.scss';
-import { MovieService } from '../../services/movie.service';
 import Auth from '../../infra/auth/Auth';
+import { Result } from '../../infra/result';
 import { Movie } from '../../models/movie/movie';
+import { MovieService } from '../../services/movie.service';
+import { ProfileService } from '../../services/profile.service';
+import './Home.scss';
 
 const Home: FunctionComponent = () => {
   const [movieList, setMovieList] = useState([]);
   const [searchTerm, setSearchTerm] = useState<string>();
+
+  const [openSnackBar, setOpenSnackBar] = useState(false);
+  const [messageSnackBar, setMessageSnackBar] = useState('');
 
   useEffect(() => {
     getRecommendedMovies();
@@ -41,6 +48,34 @@ const Home: FunctionComponent = () => {
     }
   };
 
+  const handleToAddToWatchlist = (movieId: number) => {
+    const profileActive = Auth.getProfileActive();
+    if (profileActive) {
+      ProfileService.addToWatchlist(profileActive._id, movieId)
+        .then((result) => {
+          console.log(result);
+          setMessageSnackBar('Filme adicionado a sua lista!');
+          setOpenSnackBar(true);
+        })
+        .catch((resultError) => {
+          handleErrors(resultError);
+        });
+    }
+  };
+
+  const handleErrors = (resultError: Result) => {
+    if (resultError.errors) {
+      setMessageSnackBar('Este filme já está na sua lista');
+    } else {
+      setMessageSnackBar('Falha no servidor');
+    }
+    setOpenSnackBar(true);
+  };
+
+  const onCloseSnack = () => {
+    setOpenSnackBar(false);
+  };
+
   return (
     <div>
       <section className='section'>
@@ -59,10 +94,27 @@ const Home: FunctionComponent = () => {
         </span>
         <div className='movies'>
           {movieList.map((movie: Movie) => (
-            <MovieItem key={movie.id} movie={movie} />
+            <AddToWatchlist
+              key={movie.id}
+              idMovie={movie.id}
+              onAddToWatchlist={handleToAddToWatchlist}
+            >
+              <MovieItem movie={movie} />
+            </AddToWatchlist>
           ))}
         </div>
       </section>
+
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+        autoHideDuration={3000}
+        open={openSnackBar}
+        onClose={onCloseSnack}
+        message={messageSnackBar}
+      />
     </div>
   );
 };
