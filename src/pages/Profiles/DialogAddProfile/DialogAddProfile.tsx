@@ -12,7 +12,7 @@ import Auth from '../../../infra/auth/Auth';
 import { Profile } from '../../../models/profile/profile';
 import { Result } from '../../../infra/result';
 import { ErrorHandler } from '../../../infra/errorHandler';
-import ErrorMessage from '../../../components/ErrorMessage/ErrorMessage';
+import AlertErrorMessage from '../../../components/AlertErrorMessage/AlertErrorMessage';
 import DialogContentText from '@material-ui/core/DialogContentText';
 
 type DialogProps = { open: boolean; onClose: (confirm: boolean) => void };
@@ -68,7 +68,7 @@ const DialogAddProfile: FunctionComponent<DialogProps> = ({ open, onClose }) => 
 
         <DialogContentText>
           {errorMessages.map((error: string, index: number) => (
-            <ErrorMessage key={index} message={error} />
+            <AlertErrorMessage key={index} message={error} />
           ))}
         </DialogContentText>
       </DialogContent>

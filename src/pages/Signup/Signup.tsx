@@ -3,7 +3,7 @@ import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import React, { FunctionComponent, useRef, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import AlertErrorMessage from '../../components/AlertErrorMessage/AlertErrorMessage';
 import InputForm from '../../components/formComponents/InputForm';
 import GoBack from '../../components/GoBack/Goback';
 import { ErrorHandler } from '../../infra/errorHandler';
@@ -64,7 +64,7 @@ const Signup: FunctionComponent<RouteComponentProps> = ({ history }) => {
 
           <div className='errors'>
             {errorMessages.map((error: string, index: number) => (
-              <ErrorMessage key={index} message={error} />
+              <AlertErrorMessage key={index} message={error} />
             ))}
           </div>
         </div>

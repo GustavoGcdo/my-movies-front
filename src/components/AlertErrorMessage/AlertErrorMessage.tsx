@@ -1,6 +1,6 @@
 import Icon from '@material-ui/core/Icon';
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import './ErrorMessage.scss';
+import './AlertErrorMessage.scss';
 
 type Props = {
   show?: boolean;
@@ -8,7 +8,7 @@ type Props = {
   onClose?: () => void;
 };
 
-const ErrorMessage: FunctionComponent<Props> = ({ message, onClose }) => {
+const AlertErrorMessage: FunctionComponent<Props> = ({ message, onClose }) => {
   const [showError, setShowError] = useState(true);
 
   useEffect(() => {
@@ -39,4 +39,4 @@ const ErrorMessage: FunctionComponent<Props> = ({ message, onClose }) => {
   );
 };
 
-export default ErrorMessage;
+export default AlertErrorMessage;

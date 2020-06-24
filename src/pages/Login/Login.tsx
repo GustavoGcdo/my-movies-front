@@ -4,7 +4,7 @@ import { Form } from '@unform/web';
 import React, { FunctionComponent, useRef, useState } from 'react';
 import ReactFacebookLogin from 'react-facebook-login';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import AlertErrorMessage from '../../components/AlertErrorMessage/AlertErrorMessage';
 import InputForm from '../../components/formComponents/InputForm';
 import { homeRoute, signupRoute } from '../../constants/routes.constants';
 import Auth from '../../infra/auth/Auth';
@@ -82,7 +82,7 @@ const Login: FunctionComponent<RouteComponentProps> = ({ history }) => {
 
           <div className='errors'>
             {errorMessages.map((error: string, index: number) => (
-              <ErrorMessage key={index} message={error} />
+              <AlertErrorMessage key={index} message={error} />
             ))}
           </div>
 
