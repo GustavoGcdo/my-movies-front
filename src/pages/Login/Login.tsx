@@ -17,7 +17,7 @@ const Login: FunctionComponent<RouteComponentProps> = ({ history }) => {
   const formRef = useRef<FormHandles>(null);
   const [errorMessages, setErrorMessages] = useState<string[]>([]);
 
-  console.log(process.env.APP_ID)
+  console.log(process.env.FACEBOOK_ID);
 
   const handleSubmit = (data: LoginDto) => {
     setErrorMessages([]);
