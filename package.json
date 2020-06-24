@@ -2,8 +2,10 @@
   "name": "my-movies-front",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "12.x"
+  },
   "dependencies": {
-    "@date-io/date-fns": "^2.6.2",
     "@material-ui/core": "^4.10.2",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/pickers": "^3.2.10",
@@ -18,7 +20,6 @@
     "@unform/core": "^2.1.3",
     "@unform/web": "^2.1.3",
     "axios": "^0.19.2",
-    "date-fns": "^2.14.0",
     "jsonwebtoken": "^8.5.1",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
