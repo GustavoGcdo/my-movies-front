@@ -82,7 +82,7 @@ const Home: FunctionComponent = () => {
         <span className='title'>Buscar Filmes</span>
         <input
           className='input-search-movie'
-          type='text'
+          type='search'
           placeholder='Buscar filmes'
           onChange={searchMovie}
         />
