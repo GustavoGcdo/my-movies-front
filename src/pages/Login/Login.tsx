@@ -96,7 +96,7 @@ const Login: FunctionComponent<RouteComponentProps> = ({ history }) => {
           </span>
 
           <ReactFacebookLogin
-            appId='619619541993636'
+            appId={process.env.APP_ID || ''}
             fields='name,email'
             onClick={handleClickFacebookLogin}
             callback={handleFacebookResponse}
