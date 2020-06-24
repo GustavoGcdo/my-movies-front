@@ -17,6 +17,8 @@ const Login: FunctionComponent<RouteComponentProps> = ({ history }) => {
   const formRef = useRef<FormHandles>(null);
   const [errorMessages, setErrorMessages] = useState<string[]>([]);
 
+  console.log(process.env.APP_ID)
+
   const handleSubmit = (data: LoginDto) => {
     setErrorMessages([]);
     Auth.login(data)
@@ -44,9 +46,6 @@ const Login: FunctionComponent<RouteComponentProps> = ({ history }) => {
   const handleClickFacebookLogin = () => {};
 
   const handleFacebookResponse = (response: any) => {
-    console.log(process.env.APP_ID);
-    console.log(response);
-    
     
     setErrorMessages([]);
     if (response.status === 'unknown') {
@@ -100,7 +99,7 @@ const Login: FunctionComponent<RouteComponentProps> = ({ history }) => {
           </span>
 
           <ReactFacebookLogin
-            appId={process.env.APP_ID || ''}
+            appId='619619541993636'
             fields='name,email'
             onClick={handleClickFacebookLogin}
             callback={handleFacebookResponse}
