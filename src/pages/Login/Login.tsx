@@ -44,6 +44,10 @@ const Login: FunctionComponent<RouteComponentProps> = ({ history }) => {
   const handleClickFacebookLogin = () => {};
 
   const handleFacebookResponse = (response: any) => {
+    console.log(process.env.APP_ID);
+    console.log(response);
+    
+    
     setErrorMessages([]);
     if (response.status === 'unknown') {
       Auth.loggout();
