@@ -40,6 +40,7 @@ class Auth {
 
   loggout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('profileActive');
     this._authenticated = false;
   }
 

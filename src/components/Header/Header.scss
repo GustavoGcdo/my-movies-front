@@ -16,7 +16,7 @@
     padding: 10px;
     margin-right: -20px;
     .name {
-      font-size: 15px;
+      font-size: .7em;      
     }
     .img-user {
       background-repeat: no-repeat;
@@ -31,5 +31,17 @@
       user-select: none;
       cursor: pointer;
     }
+  }
+}
+
+.logout{
+  font-size: .7em;
+  text-transform: uppercase;
+  padding: 10px 20px;  
+  transition: .3s;
+  
+  &:hover {
+    background: rgba(0, 0, 0, 0.096);
+    transition: .3s;
   }
 }
